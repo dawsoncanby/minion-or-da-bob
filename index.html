@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Minion Or Da Bob Fo Today</title>
+
+    <!--load scripts here-->
+    <script src='js/game.js'></script>
+    <script src='js/utils.js'></script>
+
+  </head>
+
+  <body>
+    <button type="button" onclick="Game.choose()">Minion Or Da Bob Fo Today?</button>
+    <canvas id='game_canvas' style='width: 100%; height: 100%;'></canvas>
+    <script>
+      // get the canvas context
+      Game.ctx = document.getElementById('game_canvas').getContext('2d');
+
+      Game.start();
+
+      // start the update loop
+      setInterval(Game.update, 1000 / Game.ups);
+
+      // draw recursively
+      (function draw() {
+        Game.draw();
+        requestAnimationFrame(draw);
+      })();
+    </script>
+  </body>
+
+</html>
